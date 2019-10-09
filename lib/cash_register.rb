@@ -15,11 +15,8 @@ class CashRegister
         quantity.times do
             @items << title
         end
+        # another way to fill an array
         # @items.fill(title,@items.size,quantity)
-        # quantity.times do 
-        #     items << title
-        # end
-
     end 
     
     def apply_discount
