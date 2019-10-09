@@ -1,6 +1,6 @@
 require 'pry'
 class CashRegister
-    attr_accessor :total, :discount, :title, :last_price, :last_title, :items
+    attr_accessor :total, :discount, :last_price, :items
 
     def initialize(discount=0)
         @total = 0
@@ -11,17 +11,23 @@ class CashRegister
         # adding a value to parameter allows us to make it OPTIONAL
         self.total += price * quantity
         @last_price = price * quantity
-        @last_title = title
         @items ||= []
-        @items.fill(title,@items.size,quantity)
+        quantity.times do
+            @items << title
+        end
+        # @items.fill(title,@items.size,quantity)
+        # quantity.times do 
+        #     items << title
+        # end
+
     end 
     
     def apply_discount
         if @discount == 0
             p "There is no discount to apply." 
         else
-        self.total -= (self.discount.to_f/100) * self.total
-        p "After the discount, the total comes to $#{self.total.to_i}."
+        self.total -= ((self.discount.to_f/100) * self.total).to_i
+        p "After the discount, the total comes to $#{self.total}."
         end
     end
 
@@ -29,9 +35,7 @@ class CashRegister
         self.total -= self.last_price
     end
 
-    def items
-        @items
-    end
+
    
 end
 
