@@ -12,6 +12,12 @@ class CashRegister
     def add_item(item_name, price, quantity = 1)
         @item_name = item_name
         @items << item_name
+        if quantity > 1
+            (quantity-1).times do 
+                @items << item_name
+            end
+        end
+
         self.total += (price * quantity)
     end
 
