@@ -28,7 +28,10 @@ class CashRegister
 
   def void_last_transaction
     @total -= (@item_price * @item_quantity)
-    
   end
 
 end
+
+# I wanted to create a new class: Items. 
+# In each item, I would store the price and quantity.
+# Adding the price and the quantity as variables to the register instance doesn't make sense.
