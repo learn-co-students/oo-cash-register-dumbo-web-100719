@@ -1,6 +1,6 @@
 require 'pry'
 class CashRegister
-    attr_accessor :total, :discount, :items
+    attr_accessor :total, :discount, :items, :last_trans
     attr_writer :add_item, :apply_discount
 
     def initialize(discount = 0)
@@ -11,6 +11,8 @@ class CashRegister
 
     def add_item(item_name, price, quantity = 1)
         @item_name = item_name
+        @last_trans = [item_name, price, quantity]
+        binding.pry
         @items << item_name
         if quantity > 1
             (quantity-1).times do 
@@ -33,6 +35,6 @@ class CashRegister
     end
 
     def void_last_transaction
-        
+
     end
 end
