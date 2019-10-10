@@ -1,3 +1,4 @@
+require 'pry'
 class CashRegister
     attr_accessor :total, :discount
     attr_writer :add_item, :apply_discount
@@ -13,6 +14,9 @@ class CashRegister
     end
 
     def apply_discount
+        @discount = 0.2
+        self.total = total - total * 0.2
+        binding.pry
 
     end
 end
